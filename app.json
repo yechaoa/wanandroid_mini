@@ -1,13 +1,60 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/tree/tree",
+    "pages/navi/navi",
+    "pages/project/project",
+    "pages/my/my",
+
     "pages/logs/logs"
   ],
   "window": {
-    "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "WeChat",
-    "navigationBarTextStyle": "black"
+    "backgroundTextStyle": "dark",
+    "navigationBarBackgroundColor": "#4CAF50",
+    "navigationBarTitleText": "玩安卓",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "color": "#666666",
+    "selectedColor": "#4CAF50",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "images/index_normal.png",
+        "selectedIconPath": "images/index_selected.png",
+        "text": "首页"
+      },
+      {
+        "pagePath": "pages/tree/tree",
+        "iconPath": "images/tree_normal.png",
+        "selectedIconPath": "images/tree_selected.png",
+        "text": "体系"
+      },
+      {
+        "pagePath": "pages/navi/navi",
+        "iconPath": "images/navi_normal.png",
+        "selectedIconPath": "images/navi_selected.png",
+        "text": "导航"
+      },
+      {
+        "pagePath": "pages/project/project",
+        "iconPath": "images/proj_normal.png",
+        "selectedIconPath": "images/proj_selected.png",
+        "text": "项目"
+      },
+      {
+        "pagePath": "pages/my/my",
+        "iconPath": "images/my_normal.png",
+        "selectedIconPath": "images/my_selected.png",
+        "text": "我的"
+      }
+    ]
+  },
+  "networkTimeout": {
+    "request": 20000,
+    "connectSocket": 10000,
+    "uploadFile": 10000,
+    "downloadFile": 10000
   },
   "sitemapLocation": "sitemap.json"
 }

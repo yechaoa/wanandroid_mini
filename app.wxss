@@ -1,4 +1,8 @@
 /**app.wxss**/
+
+@import "/lib/weui.wxss";
+
+
 .container {
   height: 100%;
   display: flex;
@@ -8,3 +12,10 @@
   padding: 200rpx 0;
   box-sizing: border-box;
 } 
+
+/* 滑动条 */
+::-webkit-scrollbar {
+     width: 0;
+     height: 0;
+     color: transparent;
+}

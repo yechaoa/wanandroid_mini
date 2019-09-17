@@ -1,4 +1,14 @@
 <!--index.wxml-->
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
+  <block wx:for="{{imgUrls}}">
+    <swiper-item>
+      <navigator url='' hover-class="navigator-hover" data-aaa='{{item}}' bindtap='swipClick'>
+        <image src="{{item}}" class="slide-image" style="width: 100vw;height:300px" model='scaleToFill' />
+      </navigator>
+    </swiper-item>
+  </block>
+</swiper>
+
 <view class="container">
   <view class="userinfo">
     <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
