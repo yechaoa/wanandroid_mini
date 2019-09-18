@@ -8,7 +8,6 @@ Page({
     * 页面的初始数据
     */
    data: {
-
       gridData: [],
 
       icons: [
@@ -23,7 +22,6 @@ Page({
          "../../images/8.png",
          "../../images/9.png",
       ],
-      grids: [0, 1, 2, 3, 4, 5, 6, 7, 8],
 
    },
 
@@ -31,8 +29,6 @@ Page({
     * 生命周期函数--监听页面加载
     */
    onLoad: function(options) {
-      console.log(this.data.icons[Math.round(Math.random() * (this.data.icons.length - 1))])
-
       var that = this;
       network.getRequestLoading(app.globalData.baseUrl + 'tree/json', "", 'loading',
          function(res) {
@@ -40,7 +36,7 @@ Page({
             // 重新组合对象
             for (var i = 0; i < res.data.length; ++i) {
                var arr = [];
-               var a = {
+               var obj = {
                   icon: "",
                   text: ""
                };
