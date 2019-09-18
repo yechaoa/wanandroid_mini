@@ -37,23 +37,21 @@ Page({
       network.getRequestLoading(app.globalData.baseUrl + 'tree/json', "", 'loading',
          function(res) {
             console.log(res.data)
-
+            // 重新组合对象
             for (var i = 0; i < res.data.length; ++i) {
-               console.log(i);
                var arr = [];
-               var a = {icon: "",text: ""};
-
-               that.setData({
+               var a = {
+                  icon: "",
+                  text: ""
+               };
+               arr.push({
                   icon: that.data.icons[Math.round(Math.random() * (that.data.icons.length - 1))],
                   text: res.data[i].name,
-
-                  gridData: arr.push(a)
+               })
+               that.setData({
+                  gridData: that.data.gridData.concat(arr)
                })
             }
-
-            // that.setData({
-            //    grids: res.data
-            // })
          },
          function(res) {
             console.log(res)
