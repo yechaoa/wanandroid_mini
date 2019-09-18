@@ -1,23 +1,36 @@
 <!--index.wxml-->
-<swiper indicator-dots="true" autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
-  <block wx:for="{{imgUrls}}" wx:key="*this">
-    <swiper-item>
-      <navigator url='' hover-class="navigator-hover" data-aaa='{{item}}' bindtap='swipClick'>
-        <image src="{{item}}" class="slide-image" style="width: 100vw;height:300px" model='scaleToFill' />
-      </navigator>
-    </swiper-item>
-  </block>
-</swiper>
+<view class="page">
 
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
-  <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
-  </view>
+   <swiper style='height:{{swiperHeight}}px' indicator-dots="true" autoplay="true" interval="5000" duration="500" bindchange="swiperChange">
+      <block wx:for="{{imgUrls}}" wx:key="*this">
+         <swiper-item>
+            <navigator url='' hover-class="navigator-hover" data-aaa='{{item}}' bindtap='swipClick'>
+               <image src="{{item.imagePath}}" style="width: {{swiperWidth}}px; height: {{swiperHeight}}px;" />
+            </navigator>
+         </swiper-item>
+      </block>
+   </swiper>
+
+   <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{articleList}}" wx:key="*this">
+         <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+            <view class="weui-cell__hd">
+               <image src="../../images/icon.png"></image>
+            </view>
+            <view class="weui-cell__bd">
+               <view class="twoLines">{{item.title}}</view>
+               <view class="weui-flex">
+                  <view class="weui-flex__item">
+                     <view class="placeholder singleLine">{{item.author}}</view>
+                  </view>
+                  <view class="weui-flex__item singleLine">
+                     {{item.superChapterName}} / {{item.chapterName}}
+                  </view>
+               </view>
+            </view>
+            <view class="weui-cell__ft weui-cell__ft_in-access">说明</view>
+         </navigator>
+      </block>
+   </view>
+
 </view>

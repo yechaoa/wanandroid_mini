@@ -13,9 +13,31 @@
   box-sizing: border-box;
 } 
 
-/* 滑动条 */
+.page{
+   height: 100%;
+   background-color: #f3f3f3;
+}
+
+/* 去除滑动条 */
 ::-webkit-scrollbar {
      width: 0;
      height: 0;
      color: transparent;
+}
+
+/* 单行显示 */
+.singleLine {
+   overflow: hidden;
+   white-space: nowrap;
+   text-overflow: ellipsis;
+}
+
+/* 两行显示 */
+.twoLines {
+   display: -webkit-box;
+   word-break: break-all;
+   -webkit-box-orient: vertical;
+   -webkit-line-clamp: 2;
+   overflow: hidden;
+   text-overflow: ellipsis;
 }

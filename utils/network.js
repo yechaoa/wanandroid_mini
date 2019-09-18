@@ -5,7 +5,6 @@
  * success:成功的回调
  * fail:失败的回调
  */
-const app = getApp()
 
 function postRequest(url, params, success, fail) {
      this.postRequestLoading(url, params, "", success, fail)
@@ -16,15 +15,6 @@ function postRequestLoading(url, params, message, success, fail) {
           wx.showLoading({
                title: message,
           })
-     }
-     if (wx.getStorageSync('wx_unionId') && wx.getStorageSync('wx_unionId') != '' && url != (app.globalData.baseUrl + 'acustomer/redPacket/authorize') && url != (app.globalData.baseUrl + 'acustomer/index/reqIndex')) {
-          params.unionId = wx.getStorageSync('wx_unionId');
-     }
-     if (wx.getStorageSync('wx_openId') && wx.getStorageSync('wx_openId') != '' && url != (app.globalData.baseUrl + 'acustomer/redPacket/authorize') && url != (app.globalData.baseUrl + 'acustomer/index/reqIndex')) {
-          params.openId = wx.getStorageSync('wx_openId');
-     }
-     if (wx.getStorageSync('city') && wx.getStorageSync('city') != '' && url != (app.globalData.baseUrl + 'acustomer/index/chooseCity') && url != (app.globalData.baseUrl + 'acustomer/order/reqSaveCouponCode')) {
-          params.city = wx.getStorageSync('city');
      }
      const postRequestTask = wx.request({
           url: url,
