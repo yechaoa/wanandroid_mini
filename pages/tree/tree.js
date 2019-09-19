@@ -1,5 +1,4 @@
 // pages/tree/tree.js
-const app = getApp()
 var network = require('../../utils/network.js');
 
 Page({
@@ -30,7 +29,7 @@ Page({
     */
    onLoad: function(options) {
       var that = this;
-      network.getRequestLoading(app.globalData.baseUrl + 'tree/json', "", 'loading',
+      network.getRequestLoading('tree/json', "", 'loading',
          function(res) {
             console.log(res.data)
             // 重新组合对象

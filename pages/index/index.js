@@ -37,7 +37,7 @@ Page({
 
    getBanner: function() {
       var that = this;
-      network.getRequestLoading(app.globalData.baseUrl + 'banner/json', "", 'loading',
+      network.getRequestLoading('banner/json', "", 'loading',
          function(res) {
             console.log(res.data)
             that.setData({
@@ -49,19 +49,19 @@ Page({
          })
    },
 
-   getArticleList: function () {
+   getArticleList: function() {
       var that = this;
       var params = new Object();
       //   params.account = e.detail.value.username,
       //   params.password = e.detail.value.password,
-      network.getRequestLoading(app.globalData.baseUrl + 'article/list/0/json', params, '',
-         function (res) {
+      network.getRequestLoading('article/list/0/json', params, '',
+         function(res) {
             console.log(res.data)
             that.setData({
                articleList: res.data.datas
             })
          },
-         function (res) {
+         function(res) {
             console.log(res)
          })
    },

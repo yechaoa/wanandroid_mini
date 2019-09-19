@@ -1,1 +1,14 @@
 /* pages/navi/navi.wxss */
+
+.title-item {
+   padding: 10px;
+   text-align: center;
+}
+
+.title-item.active {
+   color: #4caf50;
+}
+
+.title-item.normal {
+   color: #888;
+}

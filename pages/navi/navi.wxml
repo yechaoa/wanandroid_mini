@@ -1,2 +1,24 @@
 <!--pages/navi/navi.wxml-->
-<text>pages/navi/navi.wxml</text>
+<view class='page' style='display: flex;'>
+
+   <scroll-view scroll-y style="height: 100%;width:30vw;background-color:white" bindscroll="scroll" scroll-top="{{scrollTop}}">
+      <block wx:for="{{titleDatas}}" wx:key="*this" wx:for-index="idx">
+         <view class="title-item {{activeIndex==idx?'active':'normal'}}" bindtap='titleClick' data-index='{{idx}}' style="border-left: {{activeIndex==idx?5:0}}px #4CAF50 solid;background-color:{{activeIndex==idx?'#f3f3f3':'white'}}">{{item.name}}</view>
+      </block>
+   </scroll-view>
+
+   <view class="weui-grids" style="height: 100%;width:70vw;">
+      <block wx:for="{{childDatas}}" wx:key="*this">
+         <navigator url="" class="weui-grid" hover-class="weui-grid_active" bindtap='childClick' data-title='{{item.title}}' style='width:50%;'>
+            <view class="weui-grid__label">{{item.title}}</view>
+         </navigator>
+      </block>
+   </view>
+
+   <!-- <scroll-view scroll-y style="height: 100%;width:70vw;" bindscroll="scroll" scroll-top="{{scrollTop}}">
+      <block wx:for="{{childDatas}}" wx:key="*this">
+         <view class='title-item'>{{item.title}}</view>
+      </block>
+   </scroll-view> -->
+
+</view>
