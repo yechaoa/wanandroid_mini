@@ -1,2 +1,29 @@
 <!--pages/project/project.wxml-->
-<text>pages/project/project.wxml</text>
+<van-tabs animated sticky active="{{active}}" bind:change="onChange">
+
+   <block wx:for="{{titleDatas}}" wx:key="title">
+      <van-tab title="{{item.name}}">
+         <block wx:for="{{childDatas}}" wx:key="child">
+
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-title='{{item.title}}' bindtap='itemClick'>
+               <view class="weui-cell__hd">
+                  <image src="{{item.envelopePic}}" mode="aspectFit"></image>
+               </view>
+               <view class="weui-cell__bd">
+                  <view class='title twoLines'>{{item.title}}</view>
+                  <view class='desc threeLines'>{{item.desc}}</view>
+                  <view class="weui-flex">
+                     <view class="weui-flex__item">{{item.author}}</view>
+                     <view class="weui-flex__item">{{item.niceDate}}</view>
+                  </view>
+               </view>
+            </navigator>
+
+         </block>
+      </van-tab>
+   </block>
+
+</van-tabs>
+
+<!-- toast节点（必须） -->
+<van-toast id="van-toast" />
