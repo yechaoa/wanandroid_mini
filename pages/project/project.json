@@ -1,4 +1,5 @@
 {
+   "navigationBarTitleText": "项目",
    "usingComponents": {
       "van-tab": "../../vant-weapp/dist/tab/index",
       "van-tabs": "../../vant-weapp/dist/tabs/index",
