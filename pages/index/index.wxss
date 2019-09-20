@@ -7,6 +7,10 @@
    height: 30px;
 }
 
+.twoLines {
+   font-size: 16px;
+}
+
 .page .weui-flex {
    font-size: 10px;
    color: #999;
