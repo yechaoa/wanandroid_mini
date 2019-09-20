@@ -1,5 +1,6 @@
-# :collision:wanandroid_mini
-玩安卓 小程序版,感谢`鸿洋`提供的api
+# :collision:wanandroid_mini【小程序版 玩安卓】
+
+感谢`鸿洋`提供的api
 
 ![](https://img.shields.io/badge/language-小程序-orange.svg)
 ![](https://img.shields.io/hexpm/l/plug.svg)
