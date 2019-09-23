@@ -1,5 +1,6 @@
 // pages/tree/tree.js
 var network = require('../../utils/network.js');
+import Toast from '../../vant-weapp/dist/toast/toast';
 
 Page({
 
@@ -51,6 +52,14 @@ Page({
          function(res) {
             console.log(res)
          })
+   },
+
+   itemClick: function (e) {
+      console.log(e)
+      Toast(e.currentTarget.dataset.name);
+      // wx.navigateTo({
+      //    url: "/pages/web/web?url=" + e.currentTarget.dataset.link
+      // })
    },
 
    /**

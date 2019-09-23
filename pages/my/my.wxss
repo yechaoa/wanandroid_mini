@@ -1,17 +1,30 @@
 /* pages/my/my.wxss */
+
 .userinfo {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   text-align: center;
+   min-height: 45vw;
+   -webkit-box-align:center;
+-webkit-align-items:center;
+
 }
 
 .userinfo-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin: 20rpx;
-  border-radius: 50%;
+   width: 128rpx;
+   height: 128rpx;
+   margin: 20rpx;
+   border-radius: 50%;
 }
 
 .userinfo-nickname {
-  color: #aaa;
+   color: #aaa;
+}
+
+.weui-cell .weui-cell__hd image {
+   margin-right: 16px;
+   vertical-align: middle;
+   width: 25px;
+   height: 25px;
 }

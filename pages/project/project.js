@@ -55,7 +55,10 @@ Page({
 
    itemClick: function(e) {
       console.log(e)
-      Toast(e.currentTarget.dataset.title);
+      //Toast(e.currentTarget.dataset.title);
+      wx.navigateTo({
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link
+      })
    },
 
    /**

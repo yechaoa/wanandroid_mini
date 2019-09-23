@@ -1,11 +1,35 @@
 <!--pages/my/my.wxml-->
-<view class="container">
-  <view class="userinfo">
-    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-    <block wx:else>
-      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
-      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
-    </block>
-  </view>
+<view class="page">
+   <view class="userinfo">
+      <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+      <block wx:else>
+         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      </block>
+   </view>
+
+   <view class="weui-cells">
+      <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+         <view class="weui-cell__hd">
+            <image src="{{icon}}"></image>
+         </view>
+         <view class="weui-cell__bd">我的收藏</view>
+         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+         <view class="weui-cell__hd">
+            <image src="{{icon}}"></image>
+         </view>
+         <view class="weui-cell__bd">我要分享</view>
+         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+      <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
+         <view class="weui-cell__hd">
+            <image src="{{icon}}"></image>
+         </view>
+         <view class="weui-cell__bd">关于项目</view>
+         <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+   </view>
 
 </view>

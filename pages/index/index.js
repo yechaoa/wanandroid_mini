@@ -76,4 +76,11 @@ Page({
    swipClick: function(e) {
       console.log(e)
    },
+
+   itemClick: function (e) {
+      console.log(e)
+      wx.navigateTo({
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link
+      })
+   },
 })

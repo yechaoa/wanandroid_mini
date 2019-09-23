@@ -47,10 +47,8 @@ Page({
 
    childClick: function(e) {
       console.log(e)
-      wx.showToast({
-         title: e.currentTarget.dataset.title,
-         icon: 'success',
-         duration: 1000
+      wx.navigateTo({
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link
       })
    },
 

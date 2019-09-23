@@ -1,11 +1,11 @@
 {
    "pages": [
+      "pages/index/index",
+      "pages/my/my",
       "pages/project/project",
       "pages/navi/navi",
-      "pages/index/index",
       "pages/tree/tree",
-      
-      "pages/my/my",
+      "pages/web/web",
       "pages/logs/logs"
    ],
    "window": {

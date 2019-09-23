@@ -13,7 +13,7 @@
 
    <view class="weui-cells weui-cells_after-title">
       <block wx:for="{{articleList}}" wx:key="*this">
-         <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+         <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-link='{{item.link}}' bindtap='itemClick'>
             <view class="weui-cell__hd">
                <image src="../../images/icon.png"></image>
             </view>

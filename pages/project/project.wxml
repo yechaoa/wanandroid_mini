@@ -5,7 +5,7 @@
       <van-tab title="{{item.name}}">
          <block wx:for="{{childDatas}}" wx:key="child">
 
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-title='{{item.title}}' bindtap='itemClick'>
+            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-link='{{item.link}}' bindtap='itemClick'>
                <view class="weui-cell__hd">
                   <image src="{{item.envelopePic}}" mode="aspectFit"></image>
                </view>
