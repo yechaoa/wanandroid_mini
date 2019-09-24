@@ -15,6 +15,9 @@ Page({
       this.setData({
          url: options.url
       })
+      wx.setNavigationBarTitle({
+         title: options.title
+      })
    },
 
    /**

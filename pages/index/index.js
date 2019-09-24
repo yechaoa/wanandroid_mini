@@ -80,7 +80,7 @@ Page({
    itemClick: function (e) {
       console.log(e)
       wx.navigateTo({
-         url: "/pages/web/web?url=" + e.currentTarget.dataset.link
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link + "&title=" + e.currentTarget.dataset.title
       })
    },
 })

@@ -57,7 +57,7 @@ Page({
       console.log(e)
       //Toast(e.currentTarget.dataset.title);
       wx.navigateTo({
-         url: "/pages/web/web?url=" + e.currentTarget.dataset.link
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link + "&title=" + e.currentTarget.dataset.title
       })
    },
 

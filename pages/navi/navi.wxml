@@ -9,7 +9,7 @@
 
    <view class="weui-grids" style="height: 100%;width:70vw;">
       <block wx:for="{{childDatas}}" wx:key="*this">
-         <navigator url="" class="weui-grid" hover-class="weui-grid_active" bindtap='childClick' data-link='{{item.link}}' style='width:50%;'>
+         <navigator url="" class="weui-grid" hover-class="weui-grid_active" bindtap='childClick' data-link='{{item.link}}' data-title='{{item.title}}' style='width:50%;'>
             <view class="weui-grid__label">{{item.title}}</view>
          </navigator>
       </block>
