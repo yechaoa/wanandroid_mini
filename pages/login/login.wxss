@@ -1,0 +1,21 @@
+/* pages/login/login.wxss */
+
+
+button[type=primary] {
+     color: #fff;
+     background: linear-gradient(to right, #8BC34A, #4CAF50);
+     margin: 30px 20px 10px 20px;
+     border-radius: 23px;
+}
+
+
+.weui-btn.button-hover {
+     background-color: #666;
+}
+
+text{
+   float: right;
+   padding: 15px 20px;
+   color: #2196F3;
+   text-decoration:underline;
+}

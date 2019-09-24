@@ -11,21 +11,21 @@
    <view class="weui-cells">
       <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
          <view class="weui-cell__hd">
-            <image src="{{icon}}"></image>
+            <image src="../../images/ic_collect.png"></image>
          </view>
          <view class="weui-cell__bd">我的收藏</view>
          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
       <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
          <view class="weui-cell__hd">
-            <image src="{{icon}}"></image>
+            <image src="../../images/ic_share.png"></image>
          </view>
          <view class="weui-cell__bd">我要分享</view>
          <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       </navigator>
       <navigator url="" class="weui-cell weui-cell_example weui-cell_access" hover-class="weui-cell_active">
          <view class="weui-cell__hd">
-            <image src="{{icon}}"></image>
+            <image src="../../images/ic_about.png"></image>
          </view>
          <view class="weui-cell__bd">关于项目</view>
          <view class="weui-cell__ft weui-cell__ft_in-access"></view>

@@ -1,0 +1,35 @@
+<!--pages/login/login.wxml-->
+<form bindsubmit="formSubmit" bindreset="formReset">
+   <view class="weui-cells" style='margin-top:50px;'>
+
+      <view class="weui-cell ">
+         <view class="weui-cell__hd">
+            <view class="weui-label">账号：</view>
+         </view>
+         <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入账号" name="username" value='{{username}}' />
+         </view>
+         <view class="weui-cell__ft" bindtap='clearUsername'>
+            <icon type="cancel" size="20" color='#666'></icon>
+         </view>
+      </view>
+
+      <view class="weui-cell ">
+         <view class="weui-cell__hd">
+            <view class="weui-label">密码：</view>
+         </view>
+         <view class="weui-cell__bd">
+            <input class="weui-input" placeholder="请输入密码" name="password" value='{{password}}' maxlength='11' type='number' />
+         </view>
+         <view class="weui-cell__ft" bindtap='clearPassword'>
+            <icon type="cancel" size="20" color='#666'></icon>
+         </view>
+      </view>
+
+   </view>
+
+   <button class="weui-btn" type="primary" formType="submit">登录</button>
+
+   <text bindtap='resgter'>注册账号</text>
+
+</form>

@@ -77,10 +77,82 @@ Page({
       console.log(e)
    },
 
-   itemClick: function (e) {
+   itemClick: function(e) {
       console.log(e)
       wx.navigateTo({
          url: "/pages/web/web?url=" + e.currentTarget.dataset.link + "&title=" + e.currentTarget.dataset.title
       })
+   },
+
+   iconClick: function(e) {
+      console.log(e)
+      if (e.currentTarget.dataset.collect)
+         this.doUnCollect(e.currentTarget.dataset.id)
+      else
+         this.doCollect(e.currentTarget.dataset.id)
+   },
+
+   doCollect: function(id) {
+      var that = this;
+      network.postRequestLoading('lg/collect/' + id + '/json', "", 'loading',
+         function(res) {
+            console.log(res)
+            if (-1001 == res.errorCode) {
+               wx.showModal({
+                  title: '提示',
+                  content: res.errorMsg,
+                  confirmColor: "#4CAF50",
+                  showCancel: false,
+                  success: function (res) {
+                     wx.navigateTo({
+                        url: '../login/login'
+                     })
+                  }
+               })
+            } else {
+               wx.showToast({
+                  title: '收藏成功',
+                  icon: 'success',
+                  duration: 1000
+               })
+               that.getArticleList()
+            }
+         },
+         function(res) {
+            console.log(res)
+         })
+
+   },
+
+   doUnCollect: function(id) {
+      var that = this;
+      network.postRequestLoading('lg/uncollect_originId/' + id + '/json', "", 'loading',
+         function(res) {
+            console.log(res)
+            if (-1001 == res.errorCode) {
+               wx.showModal({
+                  title: '提示',
+                  content: res.errorMsg,
+                  confirmColor: "#4CAF50",
+                  showCancel: false,
+                  success: function (res) {
+                     wx.navigateTo({
+                        url: '../login/login'
+                     })
+                  }
+               })
+            } else {
+               wx.showToast({
+                  title: '取消成功',
+                  icon: 'success',
+                  duration: 1000
+               })
+               that.getArticleList()
+            }
+         },
+         function(res) {
+            console.log(res)
+         })
+
    },
 })
