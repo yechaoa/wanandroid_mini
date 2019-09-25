@@ -107,6 +107,19 @@ Page({
     * 用户点击右上角分享
     */
    onShareAppMessage: function() {
-
+      if (res.from === 'button') {
+         // 来自页面内转发按钮
+         console.log(res.target)
+      }
+      return {
+         title: '自定义转发标题',
+         path: '/page/index/index',
+         success: function(res) {
+            console.log(res);
+         },
+         fail: function(res) {
+            console.log(res);
+         }
+      }
    }
 })

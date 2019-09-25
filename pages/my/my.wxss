@@ -6,9 +6,8 @@
    align-items: center;
    text-align: center;
    min-height: 45vw;
-   -webkit-box-align:center;
--webkit-align-items:center;
-
+   -webkit-box-align: center;
+   -webkit-align-items: center;
 }
 
 .userinfo-avatar {
@@ -27,4 +26,24 @@
    vertical-align: middle;
    width: 25px;
    height: 25px;
+}
+
+.share {
+   background-color: white;
+}
+
+.weui-cells .weui-cell__bd .btn-share {
+   line-height: 1.5;
+   font-size: 17px;
+   background-color: white;
+   text-align: left;
+   padding-left: 0;
+}
+
+.btn-share::after {
+   border: none;
+}
+
+.button-hover {
+   background-color: #ececec;
 }
