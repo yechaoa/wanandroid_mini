@@ -1,21 +1,30 @@
 /* pages/login/login.wxss */
 
+.page {
+   background-color: white;
+   text-align: center;
+   padding: 30px 30px 20px 30px;
+}
+
+image {
+   width: 80px;
+   height: 80px;
+}
 
 button[type=primary] {
-     color: #fff;
-     background: linear-gradient(to right, #8BC34A, #4CAF50);
-     margin: 30px 20px 10px 20px;
-     border-radius: 23px;
+   color: #fff;
+   background: linear-gradient(to right, #8bc34a, #4caf50);
+   margin: 30px 20px 10px 20px;
+   border-radius: 23px;
 }
-
 
 .weui-btn.button-hover {
-     background-color: #666;
+   background-color: #666;
 }
 
-text{
+text {
    float: right;
    padding: 15px 20px;
-   color: #2196F3;
-   text-decoration:underline;
+   color: #2196f3;
+   text-decoration: underline;
 }

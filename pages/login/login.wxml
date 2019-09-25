@@ -1,6 +1,11 @@
 <!--pages/login/login.wxml-->
+<view class='page'>
+   <image src="../../images/icon.png"></image>
+</view>
+
 <form bindsubmit="formSubmit" bindreset="formReset">
-   <view class="weui-cells" style='margin-top:50px;'>
+
+   <view class="weui-cells" style='margin-top:0px;'>
 
       <view class="weui-cell ">
          <view class="weui-cell__hd">
