@@ -1,66 +1,159 @@
 // pages/collect/collect.js
+var network = require('../../utils/network.js');
+
 Page({
 
    /**
     * 页面的初始数据
     */
    data: {
-
+      collectData: [],
+      originid: 0,
    },
 
    /**
     * 生命周期函数--监听页面加载
     */
-   onLoad: function (options) {
+   onLoad: function(options) {
+      this.getCollectList()
+   },
 
+   getCollectList: function() {
+      var that = this;
+      network.getRequestLoading('lg/collect/list/0/json', "", 'loading',
+         function(res) {
+            console.log(res)
+            if (-1001 == res.errorCode) {
+               wx.showModal({
+                  title: '提示',
+                  content: res.errorMsg,
+                  confirmColor: "#4CAF50",
+                  showCancel: false,
+                  success: function(res) {
+                     wx.redirectTo({
+                        url: '../login/login'
+                     })
+                  }
+               })
+            } else {
+               that.setData({
+                  collectData: res.data.datas
+               })
+            }
+         },
+         function(res) {
+            console.log(res)
+         })
+   },
+
+   itemClick: function(e) {
+      console.log(e)
+      wx.navigateTo({
+         url: "/pages/web/web?url=" + e.currentTarget.dataset.link + "&title=" + e.currentTarget.dataset.title
+      })
+   },
+
+   longClick: function(e) {
+      console.log(e)
+      var that = this;
+      wx.showModal({
+         title: '是否取消收藏？',
+         content: e.currentTarget.dataset.title,
+         confirmColor: "#4CAF50",
+         showCancel: true,
+         success: function(res) {
+            if (res.confirm) {
+               console.log('用户点击确定')
+               that.setData({
+                  originid: e.currentTarget.dataset.originid
+               })
+               that.unCollect(e.currentTarget.dataset.id)
+            } else if (res.cancel) {
+               console.log('用户点击取消')
+            }
+         }
+      })
+   },
+
+   unCollect: function(id, originid) {
+      var that = this;
+      var params = new Object();
+      params.originId = this.data.originid
+      network.postRequestLoading('lg/uncollect/' + id + '/json', params, 'loading',
+         function(res) {
+            console.log(res)
+            if (-1001 == res.errorCode) {
+               wx.showModal({
+                  title: '提示',
+                  content: res.errorMsg,
+                  confirmColor: "#4CAF50",
+                  showCancel: false,
+                  success: function(res) {
+                     wx.navigateTo({
+                        url: '../login/login'
+                     })
+                  }
+               })
+            } else {
+               wx.showToast({
+                  title: '取消成功',
+                  icon: 'success',
+                  duration: 1000
+               })
+               that.getCollectList()
+            }
+         },
+         function(res) {
+            console.log(res)
+         })
    },
 
    /**
     * 生命周期函数--监听页面初次渲染完成
     */
-   onReady: function () {
+   onReady: function() {
 
    },
 
    /**
     * 生命周期函数--监听页面显示
     */
-   onShow: function () {
+   onShow: function() {
 
    },
 
    /**
     * 生命周期函数--监听页面隐藏
     */
-   onHide: function () {
+   onHide: function() {
 
    },
 
    /**
     * 生命周期函数--监听页面卸载
     */
-   onUnload: function () {
+   onUnload: function() {
 
    },
 
    /**
     * 页面相关事件处理函数--监听用户下拉动作
     */
-   onPullDownRefresh: function () {
+   onPullDownRefresh: function() {
 
    },
 
    /**
     * 页面上拉触底事件的处理函数
     */
-   onReachBottom: function () {
+   onReachBottom: function() {
 
    },
 
    /**
     * 用户点击右上角分享
     */
-   onShareAppMessage: function () {
+   onShareAppMessage: function() {
 
    }
 })

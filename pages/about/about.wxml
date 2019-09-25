@@ -1,0 +1,25 @@
+<!--pages/about/about.wxml-->
+
+<view class='page'>
+
+   <view class='header'>
+      <view class='title'>玩安卓</view>
+      <view class='sub-title'>小程序版（V1.0）</view>
+   </view>
+
+   <view class='content'>
+      <view class='title'>Github:</view>
+      <text class='sub-title'>https://github.com/yechaoa/wanandroid_mini</text>
+      <!-- <navigator url="" class="weui-footer__link">wanandroid_mini</navigator> -->
+
+      <view class='title' style='margin-top:30px;'>Thinks:</view>
+      <view class='sub-title'>weui-wxss</view>
+      <view class='sub-title'>vant-weapp</view>
+   </view>
+
+   <view class="weui-footer weui-footer_fixed-bottom">
+      <view class="weui-footer__text">wanandroid_mini</view>
+      <view class="weui-footer__text">Copyright yechaoa</view>
+   </view>
+
+</view>

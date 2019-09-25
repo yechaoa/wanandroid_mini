@@ -1,0 +1,29 @@
+/* pages/about/about.wxss */
+
+.page {
+   background-color: white;
+   padding-left: 20px;
+}
+
+.header {
+   padding: 30px 0;
+}
+
+.header .title {
+   font-size: 30px;
+}
+
+.header .sub-title {
+   font-size: 14px;
+   color: #666;
+   font-style: italic;
+}
+
+.content .title {
+   font-size: 18px;
+}
+
+.content .sub-title {
+   font-size: 14px;
+   color: #666;
+}

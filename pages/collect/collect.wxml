@@ -1,2 +1,21 @@
 <!--pages/collect/collect.wxml-->
-<text>pages/collect/collect.wxml</text>
+<view class="page">
+
+   <view class="weui-cells weui-cells_after-title">
+      <block wx:for="{{collectData}}" wx:key="*this">
+         <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-link='{{item.link}}' data-id='{{item.id}}' data-originId='{{item.originId}}' data-title='{{item.title}}' bindtap='itemClick' bindlongtap='longClick'>
+            <view class="weui-cell__bd">
+               <view class="twoLines">{{item.title}}</view>
+               <view class="weui-flex">
+                  <view class="weui-flex__item">
+                     <view class="placeholder singleLine">{{item.author}}</view>
+                  </view>
+                  <view class="weui-flex__item singleLine">{{item.chapterName}}</view>
+               </view>
+            </view>
+            <view class="weui-cell__ft"></view>
+         </navigator>
+      </block>
+   </view>
+
+</view>
