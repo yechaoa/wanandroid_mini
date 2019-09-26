@@ -2,5 +2,7 @@
    "usingComponents": {
       "van-swipe-cell": "../../vant-weapp/dist/swipe-cell/index"
    },
-   "navigationBarTitleText": "我的收藏"
+   "navigationBarTitleText": "我的收藏",
+   "enablePullDownRefresh": true,
+   "onReachBottomDistance": 50
 }

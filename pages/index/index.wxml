@@ -31,6 +31,9 @@
             <view class="weui-cell__ft weui-cell__ft_in-access"></view>
          </navigator>
       </block>
+      <view class="weui-loadmore weui-loadmore_line" style="display:{{hasMore?'none':'block'}};">
+         <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了</view>
+      </view>
    </view>
 
 </view>

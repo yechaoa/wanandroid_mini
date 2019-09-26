@@ -9,6 +9,10 @@ Page({
    data: {
       collectData: [],
       originid: 0,
+
+      curPage: 0,
+      pageSize: 20,
+      hasMore: false,
    },
 
    /**
@@ -20,7 +24,7 @@ Page({
 
    getCollectList: function() {
       var that = this;
-      network.getRequestLoading('lg/collect/list/0/json', "", 'loading',
+      network.getRequestLoading('lg/collect/list/' + that.data.curPage + '/json', "", 'loading',
          function(res) {
             console.log(res)
             if (-1001 == res.errorCode) {
@@ -36,9 +40,20 @@ Page({
                   }
                })
             } else {
-               that.setData({
-                  collectData: res.data.datas
-               })
+               var lastArr = that.data.curPage == 0 ? [] : that.data.collectData;
+               if (res.data.datas.length < that.data.pageSize) {
+                  that.setData({
+                     collectData: lastArr.concat(res.data.datas),
+                     hasMore: false,
+                  });
+               } else {
+                  that.setData({
+                     collectData: lastArr.concat(res.data.datas),
+                     hasMore: true,
+                     curPage: that.data.curPage + 1,
+                     isFirstLoadOrderList: false,
+                  });
+               }
             }
          },
          function(res) {
@@ -140,14 +155,26 @@ Page({
     * 页面相关事件处理函数--监听用户下拉动作
     */
    onPullDownRefresh: function() {
-
+      var that = this;
+      setTimeout(function() {
+         //重置分页
+         that.setData({
+            curPage: 0,
+         })
+         //重新加载一次
+         that.onLoad()
+         //停止下拉刷新
+         wx.stopPullDownRefresh()
+      }, 1500);
    },
 
    /**
     * 页面上拉触底事件的处理函数
     */
    onReachBottom: function() {
-
+      if (this.data.hasMore) {
+         this.getCollectList()
+      }
    },
 
    /**

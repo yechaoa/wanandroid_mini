@@ -15,6 +15,10 @@ Page({
       swiperWidth: 0,
 
       articleList: [],
+
+      curPage: 0,
+      pageSize: 20,
+      hasMore: false,
    },
 
    onLoad: function() {
@@ -37,7 +41,7 @@ Page({
 
    getBanner: function() {
       var that = this;
-      network.getRequestLoading('banner/json', "", 'loading',
+      network.getRequestLoading('banner/json', "", '',
          function(res) {
             console.log(res.data)
             that.setData({
@@ -54,12 +58,22 @@ Page({
       var params = new Object();
       //   params.account = e.detail.value.username,
       //   params.password = e.detail.value.password,
-      network.getRequestLoading('article/list/0/json', params, '',
+      network.getRequestLoading('article/list/' + that.data.curPage + '/json', params, 'loading',
          function(res) {
             console.log(res.data)
-            that.setData({
-               articleList: res.data.datas
-            })
+            var lastArr = that.data.curPage == 0 ? [] : that.data.articleList;
+            if (res.data.datas.length < that.data.pageSize) {
+               that.setData({
+                  articleList: lastArr.concat(res.data.datas),
+                  hasMore: false
+               });
+            } else {
+               that.setData({
+                  articleList: lastArr.concat(res.data.datas),
+                  hasMore: true,
+                  // curPage: that.data.curPage + 1,
+               });
+            }
          },
          function(res) {
             console.log(res)
@@ -103,7 +117,7 @@ Page({
                   content: res.errorMsg,
                   confirmColor: "#4CAF50",
                   showCancel: false,
-                  success: function (res) {
+                  success: function(res) {
                      wx.navigateTo({
                         url: '../login/login'
                      })
@@ -135,7 +149,7 @@ Page({
                   content: res.errorMsg,
                   confirmColor: "#4CAF50",
                   showCancel: false,
-                  success: function (res) {
+                  success: function(res) {
                      wx.navigateTo({
                         url: '../login/login'
                      })
@@ -154,5 +168,34 @@ Page({
             console.log(res)
          })
 
+   },
+
+   /**
+    * 页面相关事件处理函数--监听用户下拉动作
+    */
+   onPullDownRefresh: function() {
+      var that = this;
+      setTimeout(function() {
+         //重置分页
+         that.setData({
+            curPage: 0,
+         })
+         //重新加载一次
+         that.onLoad()
+         //停止下拉刷新
+         wx.stopPullDownRefresh()
+      }, 1500);
+   },
+
+   /**
+    * 页面上拉触底事件的处理函数
+    */
+   onReachBottom: function() {
+      if (this.data.hasMore) {
+         this.setData({
+            curPage: this.data.curPage + 1,
+         });
+         this.getArticleList()
+      }
    },
 })

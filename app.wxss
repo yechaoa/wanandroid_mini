@@ -1,30 +1,30 @@
 /**app.wxss**/
-
 @import "/lib/weui.wxss";
 
-
 .container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
-  box-sizing: border-box;
-} 
+   height: 100%;
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   justify-content: space-between;
+   box-sizing: border-box;
+}
 
-.page{
+.page {
    height: 100%;
    background-color: #f3f3f3;
 }
 
 /* 去除滑动条 */
+
 ::-webkit-scrollbar {
-     width: 0;
-     height: 0;
-     color: transparent;
+   width: 0;
+   height: 0;
+   color: transparent;
 }
 
 /* 单行显示 */
+
 .singleLine {
    overflow: hidden;
    white-space: nowrap;
@@ -32,6 +32,7 @@
 }
 
 /* 两行显示 */
+
 .twoLines {
    display: -webkit-box;
    word-break: break-all;
@@ -48,4 +49,9 @@
    -webkit-line-clamp: 3;
    overflow: hidden;
    text-overflow: ellipsis;
+}
+
+/* 页脚 */
+.weui-loadmore__tips_in-line {
+   background-color: #f3f3f3;
 }
