@@ -112,14 +112,8 @@ Page({
          console.log(res.target)
       }
       return {
-         title: '自定义转发标题',
+         title: '玩安卓Pro',
          path: '/page/index/index',
-         success: function(res) {
-            console.log(res);
-         },
-         fail: function(res) {
-            console.log(res);
-         }
       }
    }
 })
