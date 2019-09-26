@@ -1,10 +1,9 @@
 {
    "pages": [
       "pages/index/index",
-      "pages/collect/collect",
       "pages/about/about",
       "pages/my/my",
-      
+      "pages/collect/collect",
       "pages/login/login",
       "pages/project/project",
       "pages/navi/navi",
