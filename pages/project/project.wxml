@@ -1,29 +1,36 @@
 <!--pages/project/project.wxml-->
-<van-tabs animated sticky active="{{active}}" bind:change="onChange">
+<view class='page'>
+   <van-tabs animated sticky active="{{active}}" bind:change="onChange">
 
-   <block wx:for="{{titleDatas}}" wx:key="title">
-      <van-tab title="{{item.name}}">
-         <block wx:for="{{childDatas}}" wx:key="child">
+      <block wx:for="{{titleDatas}}" wx:key="title">
+         <van-tab title="{{item.name}}">
+            <block wx:for="{{childDatas}}" wx:key="child">
 
-            <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-link='{{item.link}}' data-title='{{item.title}}' bindtap='itemClick'>
-               <view class="weui-cell__hd">
-                  <image src="{{item.envelopePic}}" mode="aspectFit"></image>
-               </view>
-               <view class="weui-cell__bd">
-                  <view class='title twoLines'>{{item.title}}</view>
-                  <view class='desc threeLines'>{{item.desc}}</view>
-                  <view class="weui-flex">
-                     <view class="weui-flex__item">{{item.author}}</view>
-                     <view class="weui-flex__item">{{item.niceDate}}</view>
+               <navigator url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-link='{{item.link}}' data-title='{{item.title}}' bindtap='itemClick'>
+                  <view class="weui-cell__hd">
+                     <image src="{{item.envelopePic}}" mode="aspectFit"></image>
                   </view>
-               </view>
-            </navigator>
+                  <view class="weui-cell__bd">
+                     <view class='title twoLines'>{{item.title}}</view>
+                     <view class='desc threeLines'>{{item.desc}}</view>
+                     <view class="weui-flex">
+                        <view class="weui-flex__item">{{item.author}}</view>
+                        <view class="weui-flex__item">{{item.niceDate}}</view>
+                     </view>
+                  </view>
+               </navigator>
 
-         </block>
-      </van-tab>
-   </block>
+            </block>
+         </van-tab>
 
-</van-tabs>
+      </block>
 
+   </van-tabs>
+
+   <view class="weui-loadmore weui-loadmore_line" style="display:{{hasMore?'none':'block'}};">
+      <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了</view>
+   </view>
+
+</view>
 <!-- toast节点（必须） -->
 <van-toast id="van-toast" />

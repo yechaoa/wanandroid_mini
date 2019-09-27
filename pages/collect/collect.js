@@ -41,7 +41,7 @@ Page({
                })
             } else {
                var lastArr = that.data.curPage == 0 ? [] : that.data.collectData;
-               if (res.data.datas.length < that.data.pageSize) {
+               if (res.data.datas.length < res.data.size) {
                   that.setData({
                      collectData: lastArr.concat(res.data.datas),
                      hasMore: false,

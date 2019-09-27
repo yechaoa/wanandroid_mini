@@ -12,6 +12,9 @@ Page({
 
       titleDatas: [],
       childDatas: [],
+
+      curPage: 1,//注意有的是从1开始 有的是从0开始
+      hasMore: false,
    },
 
    /**
@@ -34,18 +37,35 @@ Page({
 
    onChange(event) {
       this.setData({
-         active: event.detail.index
+         active: event.detail.index,
+         curPage : 1
       })
       this.getChild(this.data.titleDatas[this.data.active].id)
    },
 
    getChild: function(cid) {
       var that = this;
-      network.getRequestLoading('project/list/1/json?cid=' + cid, "", 'loading',
+      network.getRequestLoading('project/list/' + that.data.curPage + '/json?cid=' + cid, "", 'loading',
          function(res) {
-            console.log(res.data.datas)
-            that.setData({
-               childDatas: res.data.datas
+            console.log(res.data)
+            var lastArr = that.data.curPage == 1 ? [] : that.data.childDatas;
+            if (res.data.datas.length < res.data.size) {
+               that.setData({
+                  childDatas: lastArr.concat(res.data.datas),
+                  hasMore: false,
+               });
+            } else {
+               that.setData({
+                  childDatas: lastArr.concat(res.data.datas),
+                  hasMore: true,
+                  curPage: that.data.curPage + 1,
+                  isFirstLoadOrderList: false,
+               });
+            }
+            //选择新的tab之后 滑动到顶部
+            wx.pageScrollTo({
+               scrollTop: 0,
+               duration: 300
             })
          },
          function(res) {
@@ -93,14 +113,23 @@ Page({
     * 页面相关事件处理函数--监听用户下拉动作
     */
    onPullDownRefresh: function() {
-
+      var that = this;
+      setTimeout(function () {
+         that.setData({
+            curPage: 1,
+         })
+         that.onLoad()
+         wx.stopPullDownRefresh()
+      }, 1500);
    },
 
    /**
     * 页面上拉触底事件的处理函数
     */
    onReachBottom: function() {
-
+      if (this.data.hasMore) {
+         this.getChild(this.data.titleDatas[this.data.active].id)
+      }
    },
 
    /**

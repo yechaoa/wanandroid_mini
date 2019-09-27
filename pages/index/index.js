@@ -62,7 +62,8 @@ Page({
          function(res) {
             console.log(res.data)
             var lastArr = that.data.curPage == 0 ? [] : that.data.articleList;
-            if (res.data.datas.length < that.data.pageSize) {
+            //判断 每次实际返回多少条数据 和 每次应返回多少条数据，从而知道是否还有数据
+            if (res.data.datas.length < res.data.size) {
                that.setData({
                   articleList: lastArr.concat(res.data.datas),
                   hasMore: false
@@ -71,7 +72,6 @@ Page({
                that.setData({
                   articleList: lastArr.concat(res.data.datas),
                   hasMore: true,
-                  // curPage: that.data.curPage + 1,
                });
             }
          },
