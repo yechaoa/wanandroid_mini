@@ -6,7 +6,10 @@
 ![](https://img.shields.io/hexpm/l/plug.svg)
 ![](https://img.shields.io/badge/CSDN-yechaoa-green.svg)
 
-<br>
+* [玩安卓 Flutter版本](https://github.com/yechaoa/wanandroid_flutter)
+* [玩安卓 Java版本](https://github.com/yechaoa/WanAndroidClient)
+* [玩安卓 小程序版本](https://github.com/yechaoa/wanandroid_mini)
+
 
 # :fire:截图
 
@@ -17,8 +20,32 @@
 
 # :beers:你能学到
 
-* [轻松上手小程序](https://blog.csdn.net/yechaoa/article/category/6503925)
+* [轻松上手小程序系列](https://blog.csdn.net/yechaoa/article/category/6503925)
+* 网络框架的封装
+* 定时器的使用
+* 页面参数传递
+* banner轮图
+* 列表渲染
+* 下拉刷新、上拉加载
+* view的显示与隐藏
+* 随机九宫格
+* tab标签页的写法
+* 搜索功能
+* 转发功能（分享功能）
+* 滑动到顶部
+* 加载webview
+* 各种组件的使用
 * 等等
+
+<br>
+
+# :pencil:Todo
+
+- 注册
+- 体系
+- ~~搜索~~
+- 退出
+- 持久化
 
 <br>
 
