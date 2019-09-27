@@ -17,10 +17,12 @@ Page({
       articleList: [],
 
       curPage: 0,
-      hasMore: false,
+      hasMore: true,
+
+      scrollDuration: 500,
    },
 
-   doSearch: function () {
+   doSearch: function() {
       wx.navigateTo({
          url: '../search/search'
       })
@@ -175,6 +177,13 @@ Page({
 
    },
 
+   scrollTop: function() {
+      wx.pageScrollTo({
+         scrollTop: 0,
+         duration: this.data.scrollDuration
+      })
+   },
+
    /**
     * 页面相关事件处理函数--监听用户下拉动作
     */
@@ -203,4 +212,16 @@ Page({
          this.getArticleList()
       }
    },
+
+   /**
+    * 监听用户滑动页面事件。
+    * 请避免在 onPageScroll 中过于频繁的执行 setData 等引起逻辑层-渲染层通信的操作。
+    */
+   onPageScroll: function(e) {
+      console.log(e.scrollTop)
+      //动态设置滑动到顶部的时长，最近最远速度相差无几，演示效果暂不考虑性能。
+      this.setData({
+         scrollDuration: e.scrollTop / 2
+      });
+   }
 })

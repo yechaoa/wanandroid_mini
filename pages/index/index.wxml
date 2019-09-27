@@ -47,5 +47,7 @@
          <view class="weui-loadmore__tips weui-loadmore__tips_in-line">没有更多了</view>
       </view>
    </view>
+ 
+   <icon type="download" size="45" color="#4caf50" bindtap='scrollTop'/>
 
 </view>
