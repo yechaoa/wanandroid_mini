@@ -11,7 +11,6 @@ Page({
       originid: 0,
 
       curPage: 0,
-      pageSize: 20,
       hasMore: false,
    },
 
@@ -50,8 +49,7 @@ Page({
                   that.setData({
                      collectData: lastArr.concat(res.data.datas),
                      hasMore: true,
-                     curPage: that.data.curPage + 1,
-                     isFirstLoadOrderList: false,
+                     curPage: that.data.curPage + 1
                   });
                }
             }

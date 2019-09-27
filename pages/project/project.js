@@ -14,7 +14,7 @@ Page({
       childDatas: [],
 
       curPage: 1,//注意有的是从1开始 有的是从0开始
-      hasMore: false,
+      hasMore: true,
    },
 
    /**
@@ -58,8 +58,7 @@ Page({
                that.setData({
                   childDatas: lastArr.concat(res.data.datas),
                   hasMore: true,
-                  curPage: that.data.curPage + 1,
-                  isFirstLoadOrderList: false,
+                  curPage: that.data.curPage + 1
                });
             }
             //选择新的tab之后 滑动到顶部

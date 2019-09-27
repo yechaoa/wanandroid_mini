@@ -1,73 +1,101 @@
-//index.js
-//获取应用实例
-const app = getApp()
+// pages/search/search.js
 var network = require('../../utils/network.js');
 
 Page({
-   data: {
-      imgUrls: [],
-      indicatorDots: false,
-      autoplay: false,
-      interval: 5000,
-      duration: 1000,
 
-      swiperHeight: 0,
-      swiperWidth: 0,
+   /**
+    * 页面的初始数据
+    */
+   data: {
+
+      inputShowed: false,
+      inputVal: "",
+
+      hotkeyDatas: [],
 
       articleList: [],
 
       curPage: 0,
-      hasMore: false,
+      hasMore: true,
+      isDisplay: true,
+
    },
 
-   doSearch: function () {
-      wx.navigateTo({
-         url: '../search/search'
-      })
+   /**
+    * 生命周期函数--监听页面加载
+    */
+   onLoad: function(options) {
+      this.getHotkey()
    },
 
-   onLoad: function() {
-
+   getHotkey: function() {
       var that = this;
-
-      wx.getSystemInfo({
-         success: function(res) {
-            that.setData({
-               swiperWidth: res.screenWidth,
-               swiperHeight: res.screenWidth / 2.06
-            });
-         }
-      });
-
-      this.getBanner()
-      this.getArticleList()
-
-   },
-
-   getBanner: function() {
-      var that = this;
-      network.getRequestLoading('banner/json', "", '',
+      network.getRequestLoading('hotkey/json', "", 'loading',
          function(res) {
             console.log(res.data)
             that.setData({
-               imgUrls: res.data
-            })
+               hotkeyDatas: res.data
+            });
          },
          function(res) {
             console.log(res)
          })
    },
 
+   showInput: function() {
+      this.setData({
+         inputShowed: true,
+         isDisplay: true
+      });
+   },
+   hideInput: function() {
+      this.setData({
+         inputVal: "",
+         inputShowed: false
+      });
+   },
+   clearInput: function() {
+      this.setData({
+         inputVal: "",
+         isDisplay: true
+      });
+   },
+   inputTyping: function(e) {
+      console.log(e)
+      this.setData({
+         inputVal: e.detail.value
+      });
+   },
+
+   doSearch: function(e) {
+      console.log(e)
+      this.setData({
+         inputVal: e.detail.value,
+         curPage: 0,
+         isDisplay: false
+      });
+      this.getArticleList()
+   },
+
+   clickTag: function(e) {
+      console.log(e)
+      this.setData({
+         inputVal: e.currentTarget.dataset.name,
+         inputShowed: true,
+         curPage: 0,
+         isDisplay: false
+      });
+      this.getArticleList()
+   },
+
    getArticleList: function() {
       var that = this;
       var params = new Object();
-      //   params.account = e.detail.value.username,
-      //   params.password = e.detail.value.password,
-      network.getRequestLoading('article/list/' + that.data.curPage + '/json', params, 'loading',
+      params.k = that.data.inputVal
+      network.postRequestLoading('article/query/' + that.data.curPage + '/json', params, 'loading',
          function(res) {
             console.log(res.data)
             var lastArr = that.data.curPage == 0 ? [] : that.data.articleList;
-            //判断 每次实际返回多少条数据 和 每次应返回多少条数据，从而知道是否还有数据
             if (res.data.datas.length < res.data.size) {
                that.setData({
                   articleList: lastArr.concat(res.data.datas),
@@ -83,17 +111,6 @@ Page({
          function(res) {
             console.log(res)
          })
-   },
-
-
-   // 切换
-   swiperChange: function(e) {
-      //console.log(e)
-   },
-
-   // 点击
-   swipClick: function(e) {
-      console.log(e)
    },
 
    itemClick: function(e) {
@@ -175,21 +192,40 @@ Page({
 
    },
 
+
+   /**
+    * 生命周期函数--监听页面初次渲染完成
+    */
+   onReady: function() {
+
+   },
+
+   /**
+    * 生命周期函数--监听页面显示
+    */
+   onShow: function() {
+
+   },
+
+   /**
+    * 生命周期函数--监听页面隐藏
+    */
+   onHide: function() {
+
+   },
+
+   /**
+    * 生命周期函数--监听页面卸载
+    */
+   onUnload: function() {
+
+   },
+
    /**
     * 页面相关事件处理函数--监听用户下拉动作
     */
    onPullDownRefresh: function() {
-      var that = this;
-      setTimeout(function() {
-         //重置分页
-         that.setData({
-            curPage: 0,
-         })
-         //重新加载一次
-         that.onLoad()
-         //停止下拉刷新
-         wx.stopPullDownRefresh()
-      }, 1500);
+
    },
 
    /**
@@ -203,4 +239,11 @@ Page({
          this.getArticleList()
       }
    },
+
+   /**
+    * 用户点击右上角分享
+    */
+   onShareAppMessage: function() {
+
+   }
 })

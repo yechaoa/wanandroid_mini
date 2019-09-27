@@ -3,6 +3,7 @@
       "pages/index/index",
       "pages/about/about",
       "pages/my/my",
+      "pages/search/search",
       "pages/collect/collect",
       "pages/login/login",
       "pages/project/project",

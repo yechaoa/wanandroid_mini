@@ -1,0 +1,7 @@
+{
+   "usingComponents": {
+      "van-tag": "../../vant-weapp/dist/tag/index"
+   },
+   "navigationBarTitleText": "搜索",
+   "onReachBottomDistance": 50
+}
