@@ -1,11 +1,12 @@
 {
    "pages": [
       "pages/index/index",
+      "pages/login/login",
+      "pages/register/register",
       "pages/about/about",
       "pages/my/my",
       "pages/search/search",
       "pages/collect/collect",
-      "pages/login/login",
       "pages/project/project",
       "pages/navi/navi",
       "pages/tree/tree",

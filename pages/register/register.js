@@ -1,4 +1,4 @@
-// pages/login/login.js
+// pages/register/register.js
 var network = require('../../utils/network.js');
 
 Page({
@@ -9,6 +9,7 @@ Page({
    data: {
       username: "",
       password: "",
+      repassword: ""
    },
 
    /**
@@ -26,15 +27,18 @@ Page({
          warn = "请输入账号";
       } else if (e.detail.value.password == "") {
          warn = "请输入密码";
+      } else if (e.detail.value.repassword == "") {
+         warn = "请确认密码";
       } else {
          flag = false;
          var params = new Object();
          params.username = e.detail.value.username
          params.password = e.detail.value.password
-         network.postRequestLoading('user/login', params, '加载中',
+         params.repassword = e.detail.value.repassword
+         network.postRequestLoading('user/register', params, '加载中',
             function(res) {
                console.log(res)
-               if (-1==res.errorCode ) {
+               if (-1 == res.errorCode) {
                   wx.showModal({
                      title: '提示',
                      content: res.errorMsg,
@@ -42,8 +46,18 @@ Page({
                      showCancel: false
                   })
                } else {
-                  wx.switchTab({
-                     url: '../index/index'
+                  wx.showModal({
+                     title: '注册成功',
+                     content: '返回登录',
+                     confirmColor: "#4CAF50",
+                     showCancel: false,
+                     success(res) {
+                        if (res.confirm) {
+                           wx.navigateBack({
+                              delta: 1
+                           })
+                        }
+                     }
                   })
                }
             },
@@ -68,16 +82,16 @@ Page({
          username: '',
       })
    },
-   
+
    clearPassword: function(e) {
       this.setData({
          password: '',
       })
    },
 
-   register: function (e) {
-      wx.navigateTo({
-         url: '../register/register'
+   clearRepassword: function(e) {
+      this.setData({
+         repassword: '',
       })
    },
 
