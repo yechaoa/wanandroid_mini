@@ -11,7 +11,7 @@ Page({
       originid: 0,
 
       curPage: 0,
-      hasMore: false,
+      hasMore: true,
    },
 
    /**
