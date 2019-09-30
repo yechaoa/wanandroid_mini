@@ -1,6 +1,6 @@
 {
    "usingComponents": {
-      "van-toast": "../../vant-weapp/dist/toast/index"
+      "van-tag": "../../vant-weapp/dist/tag/index"
    },
    "navigationBarTitleText": "体系"
 }

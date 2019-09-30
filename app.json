@@ -1,6 +1,8 @@
 {
    "pages": [
       "pages/index/index",
+      "pages/tree/tree",
+      "pages/treeDetail/treeDetail",
       "pages/login/login",
       "pages/register/register",
       "pages/about/about",
@@ -9,7 +11,6 @@
       "pages/collect/collect",
       "pages/project/project",
       "pages/navi/navi",
-      "pages/tree/tree",
       "pages/web/web",
       "pages/logs/logs"
    ],

@@ -1,4 +1,9 @@
 // pages/web/web.js
+
+
+// web-view 个人类型的小程序暂不支持使用 GG...
+
+
 Page({
 
    /**

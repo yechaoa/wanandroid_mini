@@ -1,1 +1,26 @@
 /* pages/tree/tree.wxss */
+
+.weui-cells {
+   padding: 15px;
+   margin: 0;
+}
+
+.weui-cells::before {
+   border: none;
+}
+
+.weui-cell {
+   padding: 0;
+}
+
+image {
+   margin-right: 16px;
+   vertical-align: middle;
+   width: 25px;
+   height: 25px;
+}
+
+van-tag {
+   margin-right: 15px;
+   font-size: 25px;
+}

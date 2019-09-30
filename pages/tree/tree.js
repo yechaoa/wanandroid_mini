@@ -34,32 +34,35 @@ Page({
          function(res) {
             console.log(res.data)
             // 重新组合对象
+            var arr = [];
+            var obj = {
+               icon: "",
+               text: "",
+               cid: "",
+               children: []
+            };
             for (var i = 0; i < res.data.length; ++i) {
-               var arr = [];
-               var obj = {
-                  icon: "",
-                  text: ""
-               };
                arr.push({
                   icon: that.data.icons[Math.round(Math.random() * (that.data.icons.length - 1))],
                   text: res.data[i].name,
-               })
-               that.setData({
-                  gridData: that.data.gridData.concat(arr)
+                  cid: res.data[i].id,
+                  children: res.data[i].children
                })
             }
+            that.setData({
+               gridData: that.data.gridData.concat(arr)
+            })
          },
          function(res) {
             console.log(res)
          })
    },
 
-   itemClick: function (e) {
+   tagClick: function(e) {
       console.log(e)
-      Toast(e.currentTarget.dataset.name);
-      // wx.navigateTo({
-      //    url: "/pages/web/web?url=" + e.currentTarget.dataset.link
-      // })
+      wx.navigateTo({
+         url: "/pages/treeDetail/treeDetail?cid=" + e.currentTarget.dataset.cid + '&title=' + e.currentTarget.dataset.title
+      })
    },
 
    /**
