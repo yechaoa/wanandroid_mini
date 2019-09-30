@@ -1,13 +1,18 @@
 /* pages/my/my.wxss */
 
+.page {
+   background-color: white;
+}
+
 .userinfo {
    display: flex;
    flex-direction: column;
    align-items: center;
    text-align: center;
-   min-height: 45vw;
    -webkit-box-align: center;
    -webkit-align-items: center;
+   vertical-align: middle;
+   padding: 30px;
 }
 
 .userinfo-avatar {
@@ -47,3 +52,9 @@
 .button-hover {
    background-color: #ececec;
 }
+
+.logout {
+   margin: 30px 50px;
+   font-size: 16px;
+}
+

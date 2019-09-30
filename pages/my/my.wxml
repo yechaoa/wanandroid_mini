@@ -34,4 +34,6 @@
       </navigator>
    </view>
 
+   <button class="weui-btn logout" type="default" bindtap='logout'>退出账号</button>
+
 </view>

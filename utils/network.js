@@ -27,6 +27,7 @@ function postRequestLoading(url, params, message, success, fail) {
       },
       method: 'POST',
       success: function(res) {
+         console.log(res)
          if (message != "") {
             wx.hideLoading()
          }
@@ -68,6 +69,7 @@ function getRequestLoading(url, params, message, success, fail) {
       },
       method: 'GET',
       success: function(res) {
+         console.log(res)
          if (message != "") {
             wx.hideLoading()
          }

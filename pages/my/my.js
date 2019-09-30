@@ -1,6 +1,7 @@
 // pages/my/my.js
 //获取应用实例
 const app = getApp()
+var network = require('../../utils/network.js');
 
 Page({
 
@@ -59,6 +60,45 @@ Page({
          userInfo: e.detail.userInfo,
          hasUserInfo: true
       })
+   },
+
+   logout: function() {
+      var that=this;
+      wx.showModal({
+         title: '确认退出？',
+         success(res) {
+            if (res.confirm) {
+               console.log('用户点击确定')
+               that.doLogout()
+            } else if (res.cancel) {
+               console.log('用户点击取消')
+            }
+         }
+      })
+   },
+
+   doLogout: function() {
+      wx.removeStorageSync('Set-Cookie')
+      network.getRequestLoading('user/logout/json', "", '加载中',
+         function(res) {
+            console.log(res)
+            if (0 == res.errorCode) {
+               wx.showToast({
+                  title: '账号已退出',
+                  icon: 'success',
+                  duration: 1000
+               })
+            } else {
+               wx.showToast({
+                  title: res.errorMsg,
+                  icon: 'none',
+                  duration: 1000
+               })
+            }
+         },
+         function(res) {
+            console.log(res)
+         })
    },
 
    /**
