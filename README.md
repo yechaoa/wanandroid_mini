@@ -12,11 +12,19 @@
 
 ## 老铁，点个star:kiss:
 
+<img src="/screenshot/qrcode.png" width="285"/>
+
+> 个人类型的小程序暂不支持使用web-view
+
 # :fire:截图
 
-| <img src="/screenshot/1.jpg" width="285"/> | <img src="/screenshot/2.jpg" width="285"/> | <img src="/screenshot/3.jpg" width="285"/> | <img src="/screenshot/4.jpg" width="285"/> |
-| :--: | :--: | :--: | :--: |
-| 首页 | 体系 | 导航 | 项目 |
+| <img src="/screenshot/1.jpg" width="285"/> | <img src="/screenshot/2.jpg" width="285"/> | <img src="/screenshot/3.jpg" width="285"/> | 
+| :--: | :--: | :--: |
+| 首页 | 体系 | 导航 |
+
+| <img src="/screenshot/4.jpg" width="285"/> | <img src="/screenshot/5.jpg" width="285"/> | <img src="/screenshot/6.jpg" width="285"/> | 
+| :--: | :--: | :--: |
+| 项目 | 我的 | 登录 |
 
 
 # :beers:你能学到
@@ -42,11 +50,11 @@
 
 # :pencil:Todo
 
-- 注册
+- ~~注册~~
 - ~~搜索~~
 - ~~退出~~
 - ~~持久化~~
-- 体系
+- ~~体系~~
 
 <br>
 
