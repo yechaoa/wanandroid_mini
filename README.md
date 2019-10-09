@@ -14,7 +14,7 @@
 
 <img src="/screenshot/qrcode.png" width="285"/>
 
-> 个人类型的小程序暂不支持使用web-view
+> 个人类型的小程序暂不支持使用web-view ，打开`调试`即可
 
 # :fire:截图
 
