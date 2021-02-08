@@ -1,4 +1,4 @@
-# :collision:wanandroid_mini【小程序版 玩安卓】
+# :collision:玩安卓 小程序版本
 
 感谢`鸿洋`提供的api
 
@@ -10,8 +10,7 @@
 * [玩安卓 Java版本](https://github.com/yechaoa/wanandroid_java)
 * [玩安卓 小程序版本](https://github.com/yechaoa/wanandroid_mini)
 * [玩安卓 Kotlin版本](https://github.com/yechaoa/wanandroid_kotlin)
-
-## 老铁，点个star:kiss:
+* [玩安卓 Jetpack版本](https://github.com/yechaoa/wanandroid_jetpack)
 
 <img src="/screenshot/qrcode.png" width="285"/>
 
