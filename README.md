@@ -48,16 +48,6 @@
 
 <br>
 
-# :pencil:Todo
-
-- ~~注册~~
-- ~~搜索~~
-- ~~退出~~
-- ~~持久化~~
-- ~~体系~~
-
-<br>
-
 # :point_right:感谢
 
 * [weui-wxss](https://github.com/Tencent/weui-wxss/)
